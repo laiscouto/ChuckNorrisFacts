@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.service
+package br.com.laiscouto.factsofchucknorris.service.model
 
 import com.google.gson.annotations.SerializedName
 
