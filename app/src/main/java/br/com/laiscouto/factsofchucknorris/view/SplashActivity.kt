@@ -1,10 +1,11 @@
-package br.com.laiscouto.factsofchucknorris
+package br.com.laiscouto.factsofchucknorris.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ProgressBar
 import android.widget.TextView
+import br.com.laiscouto.factsofchucknorris.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

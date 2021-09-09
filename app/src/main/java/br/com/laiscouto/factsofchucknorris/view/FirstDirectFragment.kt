@@ -1,6 +1,5 @@
-package br.com.laiscouto.factsofchucknorris
+package br.com.laiscouto.factsofchucknorris.view
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import br.com.laiscouto.factsofchucknorris.R
 
 class FirstDirectFragment : Fragment() {
 

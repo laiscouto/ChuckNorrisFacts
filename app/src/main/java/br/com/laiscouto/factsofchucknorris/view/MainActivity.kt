@@ -1,8 +1,8 @@
-package br.com.laiscouto.factsofchucknorris
+package br.com.laiscouto.factsofchucknorris.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
+import br.com.laiscouto.factsofchucknorris.R
 
 class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
