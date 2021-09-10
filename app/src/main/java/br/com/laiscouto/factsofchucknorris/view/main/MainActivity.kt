@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view
+package br.com.laiscouto.factsofchucknorris.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view
+package br.com.laiscouto.factsofchucknorris.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,7 +23,7 @@ class FirstDirectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bt = view.findViewById<Button>(R.id.button)
+        val bt = view.findViewById<Button>(R.id.button_inicial)
         bt?.setOnClickListener{
             findNavController().navigate(R.id.action_firstDirectFragment_to_searchActivity)
         }

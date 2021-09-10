@@ -1,8 +1,9 @@
-package br.com.laiscouto.factsofchucknorris.view
+package br.com.laiscouto.factsofchucknorris.view.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import br.com.laiscouto.factsofchucknorris.R
@@ -12,17 +13,22 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        val x = findViewById<TextView>(R.id.hello)
-        val y = findViewById<ProgressBar>(R.id.progress)
-        x.alpha = 0f
-        y.alpha = 0f
-        x.animate().setDuration(1500).alpha(1f).withEndAction {
-            y.animate().setDuration(2000).alpha(1f)
+        splashActivity()
+    }
+
+    fun splashActivity(){
+
+        val img = findViewById<ImageView>(R.id.imgFacts)
+        img.alpha = 0f
+
+        img.animate().setDuration(1500).alpha(1f).withEndAction {
+
             Intent(this, MainActivity::class.java).apply {
                 startActivity(this)
             }
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }
+
     }
 }
