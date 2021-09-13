@@ -8,21 +8,38 @@
     tools:context=".view.fragments.SearchFragment"
     android:background="@color/white">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/azul"/>
 
     <TextView
+        android:id="@+id/text"
         android:text="@string/text_enter_a_search"
         android:textColor="@color/azul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/enter_fact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints="Enter a fact" />
+    <Button
+        android:text="NEXT"
+        android:id="@+id/bt_fact"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintTop_toBottomOf="@id/enter_fact"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/custon_bt_first_direct"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="60dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

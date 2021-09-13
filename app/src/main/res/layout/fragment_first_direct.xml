@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
        app:layout_constraintBottom_toTopOf="@id/button_inicial"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -28,7 +28,10 @@
         android:background="@drawable/custon_bt_first_direct"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="120dp"
+
         android:text="@string/bt_inicial"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

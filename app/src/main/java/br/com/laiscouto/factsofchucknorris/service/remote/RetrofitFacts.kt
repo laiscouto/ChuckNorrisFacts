@@ -10,7 +10,7 @@ class RetrofitFacts private constructor()  {
     companion object{
 
         private lateinit var retrofit: Retrofit
-        private val baseUrl = "https://api.chucknorris.io/jokes/search/"
+        private val baseUrl = "https://api.chucknorris.io/"
 
         private fun getInstance(): Retrofit {
             val httpClient = OkHttpClient.Builder()

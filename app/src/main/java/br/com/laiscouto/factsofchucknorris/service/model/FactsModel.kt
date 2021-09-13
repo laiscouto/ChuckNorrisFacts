@@ -3,7 +3,7 @@ package br.com.laiscouto.factsofchucknorris.service.model
 import com.google.gson.annotations.SerializedName
 
 data class FactsModel(
-    val results: List<ResultOfFacts>
+    val result: List<ResultOfFacts>
 )
 
 data class ResultOfFacts (
