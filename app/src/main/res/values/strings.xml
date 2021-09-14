@@ -5,4 +5,5 @@
     <string name="text_inicial_first_fragment">Are you ready to know the facts about the most amazing human being on the Earth?</string>
     <string name="text_enter_a_search">Enter any facts you want to know Chuck Norris.</string>
     <string name="search">Search</string>
+    <string name="textForResultsIsEmpty">Oh no, look for other facts and you\'ll see amazing things about me! </string>
 </resources>

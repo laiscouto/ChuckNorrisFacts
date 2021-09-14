@@ -2,7 +2,9 @@ package br.com.laiscouto.factsofchucknorris.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.laiscouto.factsofchucknorris.R
@@ -20,6 +22,7 @@ class FactsMain : AppCompatActivity() {
     private val repository = RepositoryFacts()
     private val viewModel = FactsViewModel(repository)
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_facts_main)
@@ -29,26 +32,36 @@ class FactsMain : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = factsAdapter
+        infoFactsEmpty()
     }
 
-    private fun handlerSuccess(listFacts: List<ResultOfFacts>){
+
+    private fun handlerSuccess(listFacts: List<ResultOfFacts>) {
         factsAdapter.updateFacts(listFacts)
     }
 
-    private fun observeFactsViewModel(){
-        viewModel.observeState().observe(this,{
+    private fun observeFactsViewModel() {
+        viewModel.observeState().observe(this, {
             when (it) {
                 is FactsState.Loading -> {
                     Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
                 }
 
-                is FactsState.Success ->{
+                is FactsState.Success -> {
                     handlerSuccess(it.resultsFacts)
                 }
                 is FactsState.Error -> {
                     Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                 }
             }
+        })
+    }
+
+    private fun infoFactsEmpty(){
+        val text = findViewById<TextView>(R.id.facts_empty)
+        text.visibility = View.VISIBLE
+        viewModel.textIsEmpty.observe(this,{
+            text.text = it
         })
     }
 }

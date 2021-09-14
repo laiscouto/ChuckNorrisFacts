@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
 import br.com.laiscouto.factsofchucknorris.service.repository.RepositoryFacts
 import kotlinx.coroutines.Dispatchers
@@ -13,6 +14,9 @@ class FactsViewModel(private val factsRepository: RepositoryFacts) : ViewModel()
 
     private val state = MutableLiveData<FactsState>()
     private val resultsValues = mutableListOf<ResultOfFacts>()
+    private val resultEmpty = MutableLiveData<String>()
+
+    var textIsEmpty = resultEmpty
 
 
     fun observeState(): LiveData<FactsState> = state
@@ -21,9 +25,13 @@ class FactsViewModel(private val factsRepository: RepositoryFacts) : ViewModel()
         viewModelScope.launch(Dispatchers.Main){
             state.postValue(FactsState.Loading)
             try {
-                val result = factsRepository.getFacts(facts)
-                resultsValues.addAll(result.result)
-                handleSuccess(resultsValues)
+                val results = factsRepository.getFacts(facts)
+                if(results.result.isEmpty()) {
+                    textIsEmpty.value?.get(R.string.textForResultsIsEmpty)
+                }else{
+                    resultsValues.addAll(results.result)
+                    handleSuccess(resultsValues)
+                }
             }  catch (e:Exception){
                 handleError()
             }
@@ -38,5 +46,6 @@ class FactsViewModel(private val factsRepository: RepositoryFacts) : ViewModel()
         state.postValue(FactsState.Error)
 
     }
+
 
 }
