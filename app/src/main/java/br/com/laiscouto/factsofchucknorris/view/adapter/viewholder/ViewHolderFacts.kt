@@ -18,18 +18,19 @@ class ViewHolderFacts(itemView: View): RecyclerView.ViewHolder(itemView) {
             facts.text = resultFacts.value
 
         val factsCategory = itemView.findViewById<TextView>(R.id.category)
-        factsCategory.text = resultFacts.categories
+        factsCategory.text = resultFacts.categories.toString()
 
-        /*val linkAction = itemView.findViewById<ImageView>(R.id.img_link_direcion)
+        val urlCard = resultFacts.url
+        val linkAction = itemView.findViewById<ImageView>(R.id.img_link_direcion)
         linkAction.setOnClickListener{
-            val x= KEY_FACTS
-            val shareBody = "Look is fact about Chuck Norris: https://api.chucknorris.io/jokes/search/$x"
+
+            val shareBody = "Look is fact about Chuck Norris: $urlCard"
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
 
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
 
            startActivity(itemView.context, shareIntent, null)
-        }*/
+        }
     }
 }

@@ -8,7 +8,9 @@ data class FactsModel(
 
 data class ResultOfFacts (
     @SerializedName("categories")
-    val categories: String,
+    val categories: List<String>,
     @SerializedName("value")
-    val value:String
+    val value:String,
+    @SerializedName("url")
+    val url : String
     )

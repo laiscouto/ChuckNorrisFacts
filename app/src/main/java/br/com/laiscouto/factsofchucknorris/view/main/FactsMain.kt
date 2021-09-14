@@ -24,11 +24,11 @@ class FactsMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_facts_main)
 
+        observeFactsViewModel()
         facts?.let { viewModel.fetchFacts(it) }
         val recyclerView = findViewById<RecyclerView>(R.id.recycler)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = factsAdapter
-        observeFactsViewModel()
     }
 
     private fun handlerSuccess(listFacts: List<ResultOfFacts>){
