@@ -27,5 +27,6 @@ class FirstDirectFragment : Fragment() {
         bt?.setOnClickListener{
             findNavController().navigate(R.id.action_firstDirectFragment_to_searchActivity)
         }
+
     }
 }

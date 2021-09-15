@@ -5,7 +5,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import br.com.laiscouto.factsofchucknorris.view.main.FactsMain
+import br.com.laiscouto.factsofchucknorris.view.main.MainActivity
 import br.com.laiscouto.factsofchucknorris.R
 
 class SearchFragment : Fragment() {
@@ -23,14 +23,14 @@ class SearchFragment : Fragment() {
 
         val bt = view.findViewById<Button>(R.id.bt_fact)
         bt.setOnClickListener{
-            saveFact()
+            saveSearch()
         }
 
     }
-    fun saveFact(){
+    private fun saveSearch(){
         val fact = view?.findViewById<EditText>(R.id.enter_fact)
         val saveFact = fact?.text
-        val intent = Intent(context, FactsMain::class.java).apply {
+        val intent = Intent(context, MainActivity::class.java).apply {
             val bundle = Bundle()
             bundle.putString(KEY_FACTS, saveFact.toString())
             putExtras(bundle)

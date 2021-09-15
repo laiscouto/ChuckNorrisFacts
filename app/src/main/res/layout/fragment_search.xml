@@ -15,9 +15,9 @@
         android:textColor="@color/azul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/enter_fact"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -25,21 +25,45 @@
         android:id="@+id/enter_fact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
-        android:autofillHints="Enter a fact" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:autofillHints="Enter a fact"
+        android:inputType="textAutoComplete" />
+
+    <ImageView
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_outline_search_24"
+        app:layout_constraintEnd_toEndOf="@id/enter_fact"
+        app:layout_constraintBottom_toBottomOf="@id/enter_fact"
+        app:layout_constraintTop_toTopOf="@id/enter_fact" />
+
     <Button
         android:text="NEXT"
         android:id="@+id/bt_fact"
         android:layout_width="120dp"
+        android:textColor="@color/white"
         android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toBottomOf="@id/enter_fact"
+        app:layout_constraintTop_toBottomOf="@id/text"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="64dp"
         android:background="@drawable/custon_bt_first_direct"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="60dp"/>
+        />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/chuck"
+        android:layout_width="82dp"
+        android:layout_height="87dp"
+        android:layout_marginBottom="32dp"
+        android:src="@drawable/chuck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

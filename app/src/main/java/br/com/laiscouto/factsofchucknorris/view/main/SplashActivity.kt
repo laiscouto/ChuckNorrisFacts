@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import br.com.laiscouto.factsofchucknorris.R
 
 class SplashActivity : AppCompatActivity() {
@@ -17,13 +15,10 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun splashActivity(){
-
         val img = findViewById<ImageView>(R.id.imgFacts)
         img.alpha = 0f
-
         img.animate().setDuration(1500).alpha(1f).withEndAction {
-
-            Intent(this, MainActivity::class.java).apply {
+            Intent(this, HostActivity::class.java).apply {
                 startActivity(this)
             }
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

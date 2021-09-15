@@ -6,4 +6,5 @@
     <string name="text_enter_a_search">Enter any facts you want to know Chuck Norris.</string>
     <string name="search">Search</string>
     <string name="textForResultsIsEmpty">Oh no, look for other facts and you\'ll see amazing things about me! </string>
+    <string name="categoryEmpty">UNCATEGORIZED</string>
 </resources>
