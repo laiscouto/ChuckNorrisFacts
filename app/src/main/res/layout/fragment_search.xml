@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/text"
         android:text="@string/text_enter_a_search"
-        android:textColor="@color/azul"
+        android:textColor="@color/blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
@@ -31,15 +31,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:autofillHints="Enter a fact"
-        android:inputType="textAutoComplete" />
+        android:inputType="textAutoComplete"
+        android:enabled="true"
+        android:maxLength="20"
+        android:backgroundTint="@color/blue"/>
 
     <ImageView
-        android:layout_width="43dp"
+        android:id="@+id/search"
+        android:layout_width="41dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_outline_search_24"
-        app:layout_constraintEnd_toEndOf="@id/enter_fact"
         app:layout_constraintBottom_toBottomOf="@id/enter_fact"
-        app:layout_constraintTop_toTopOf="@id/enter_fact" />
+        app:layout_constraintEnd_toEndOf="@id/enter_fact"
+        app:layout_constraintTop_toTopOf="@id/enter_fact"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:text="NEXT"

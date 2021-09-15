@@ -27,7 +27,8 @@ class FactsViewModel(private val factsRepository: RepositoryFacts) : ViewModel()
             try {
                 val results = factsRepository.getFacts(facts)
                 if(results.result.isEmpty()) {
-                    textIsEmpty.value?.get(R.string.textForResultsIsEmpty)
+                    textIsEmpty.value =
+                        "Oh no, look for other facts and you'll see amazing things about me"
                 }else{
                     resultsValues.addAll(results.result)
                     handleSuccess(resultsValues)

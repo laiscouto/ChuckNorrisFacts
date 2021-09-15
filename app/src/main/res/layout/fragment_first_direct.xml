@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/tex_ready"
         android:text="@string/text_inicial_first_fragment"
-        android:textColor="@color/azul"
+        android:textColor="@color/blue"
         android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

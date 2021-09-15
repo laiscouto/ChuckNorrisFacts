@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.laiscouto.factsofchucknorris.view.main.MainActivity
 import br.com.laiscouto.factsofchucknorris.R
+import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
 
 class SearchFragment : Fragment() {
 
@@ -25,20 +28,26 @@ class SearchFragment : Fragment() {
         bt.setOnClickListener{
             saveSearch()
         }
+        val search = view.findViewById<ImageView>(R.id.search)
+        search.setOnClickListener {
+            saveSearch()
+        }
 
     }
-    private fun saveSearch(){
-        val fact = view?.findViewById<EditText>(R.id.enter_fact)
-        val saveFact = fact?.text
-        val intent = Intent(context, MainActivity::class.java).apply {
-            val bundle = Bundle()
-            bundle.putString(KEY_FACTS, saveFact.toString())
-            putExtras(bundle)
+    private fun saveSearch() {
+        val receivingOfFact = view?.findViewById<EditText>(R.id.enter_fact)
+        val saveFact = receivingOfFact?.text
+        if (saveFact.isNullOrEmpty()) {
+            Toast.makeText(context, "Hey, enter a fact", Toast.LENGTH_SHORT).show()
+
+        }else{
+            val intent = Intent(context, MainActivity::class.java).apply {
+                val bundle = Bundle()
+                bundle.putString(KEY_FACTS, saveFact.toString())
+                putExtras(bundle)
+            }
+            startActivity(intent)
         }
-        startActivity(intent)
-    }
-    companion object{
-        const val KEY_FACTS = "facts"
     }
 
 }

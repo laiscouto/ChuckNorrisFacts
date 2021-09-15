@@ -5,35 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/cons"
     tools:context=".view.main.MainActivity">
 
     <TextView
         android:textAlignment="center"
         android:id="@+id/facts_empty"
         android:visibility="invisible"
-        android:textSize="24dp"
-        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textColor="#EA4A17"
+        android:padding="8dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/null_fact"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text=""/>
-    <TextView
-        android:textAlignment="center"
-        android:id="@+id/no_conection"
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/chuck"
         android:visibility="invisible"
-        android:textSize="24dp"
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="82dp"
+        android:layout_height="86dp"
+        android:src="@drawable/chuck"
+        app:layout_constraintBottom_toTopOf="@+id/facts_empty"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text=""/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
