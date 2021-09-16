@@ -3,7 +3,7 @@
 An Android application that allows the user search for Chuck Norris Facts, using the api.chucknorris.io to retrieve the Facts.
 
 ## Installation
-This application was built using the Android Gradle4.1.3 and Kotlin 1.4.32.
+This application was built using the Android Gradle 4.1.3 and Kotlin 1.4.32.
 In order to import it into Android Studio, make sure your setup meets these requirements, it also makes use of the AndroidX libraries.
 
 ## STACK
