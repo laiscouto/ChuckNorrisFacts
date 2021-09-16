@@ -60,9 +60,9 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ProgressBar
+        android:id="@+id/loading"
         android:layout_width="72dp"
         android:layout_height="66dp"
-        android:background="@drawable/chuck_progress"
         android:indeterminate="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
