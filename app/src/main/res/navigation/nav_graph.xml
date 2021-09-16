@@ -8,9 +8,9 @@
 
     <fragment
         android:id="@+id/firstDirectFragment"
-        android:name="br.com.laiscouto.factsofchucknorris.homescreens.fragments.FirstDirectFragment"
+        android:name="br.com.laiscouto.factsofchucknorris.homescreens.fragments.DirectSearchFragment"
         android:label="name"
-        tools:layout="@layout/fragment_first_direct" >
+        tools:layout="@layout/fragment_direct_search" >
         <action
             android:id="@+id/action_firstDirectFragment_to_searchActivity"
             app:destination="@id/searchActivity" />

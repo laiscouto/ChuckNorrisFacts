@@ -1,6 +1,7 @@
 package br.com.laiscouto.factsofchucknorris.view.main
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
+import br.com.laiscouto.factsofchucknorris.homescreens.HostActivity
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
 import br.com.laiscouto.factsofchucknorris.view.main.adaptermain.FactsAdapter
 import br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain.FactsState
@@ -69,6 +71,10 @@ class MainActivity : AppCompatActivity() {
         viewModelFacts.textIsEmpty.observe(this,{
             chuck.visibility = View.VISIBLE
             btBack.visibility = View.VISIBLE
+            btBack.setOnClickListener {
+                val intent = Intent(this, HostActivity::class.java)
+                startActivity(intent)
+            }
         })
     }
     private fun infoException(){
@@ -77,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         viewModelFacts.exeception.observe(this,{
             chuck.visibility = View.VISIBLE
             btBye.visibility = View.VISIBLE
+            btBye.setOnClickListener {  }
         })
     }
 

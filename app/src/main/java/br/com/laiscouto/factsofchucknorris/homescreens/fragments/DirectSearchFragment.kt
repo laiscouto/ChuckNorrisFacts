@@ -9,14 +9,14 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import br.com.laiscouto.factsofchucknorris.R
 
-class FirstDirectFragment : Fragment() {
+class DirectSearchFragment : Fragment() {
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_first_direct, container, false)
+        return inflater.inflate(R.layout.fragment_direct_search, container, false)
 
     }
 
