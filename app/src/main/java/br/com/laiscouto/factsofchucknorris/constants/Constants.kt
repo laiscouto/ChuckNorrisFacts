@@ -8,5 +8,6 @@ class Constants {
 
     companion object{
         const val KEY_FACTS = "facts"
+        const val KEYS_ACTION = 6
     }
-}
+}gi

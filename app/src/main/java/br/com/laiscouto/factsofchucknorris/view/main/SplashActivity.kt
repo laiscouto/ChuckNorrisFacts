@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         splashActivity()
     }
 
-    fun splashActivity(){
+    private fun splashActivity(){
         val img = findViewById<ImageView>(R.id.imgFacts)
         img.alpha = 0f
         img.animate().setDuration(1500).alpha(1f).withEndAction {
