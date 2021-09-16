@@ -1,6 +1,6 @@
 # ChuckNorrisFacts
 
-An Android application that allows the user search for Chuck Norris Facts, using the 'api.chucknorris.io' to retrieve the Facts.
+An Android application that allows the user search for Chuck Norris Facts, using the `api.chucknorris.io` to retrieve the Facts.
 
 ## Installation
 This application was built using the Android Gradle 4.1.3 and Kotlin 1.4.32.
