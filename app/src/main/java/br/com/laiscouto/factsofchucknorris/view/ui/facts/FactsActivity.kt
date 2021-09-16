@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.ui.main
+package br.com.laiscouto.factsofchucknorris.view.ui.facts
 
 
 import android.content.Intent
@@ -8,23 +8,23 @@ import android.widget.Toast
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
-import br.com.laiscouto.factsofchucknorris.view.ui.homescreens.HostActivity
+import br.com.laiscouto.factsofchucknorris.view.ui.search.SearchHostActivity
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
-import br.com.laiscouto.factsofchucknorris.view.ui.main.adaptermain.FactsAdapter
-import br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain.FactsState
-import br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain.FactsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class FactsActivity : AppCompatActivity() {
 
 
     private val facts by lazy { intent.extras?.getString(KEY_FACTS) }
     private val factsAdapter = FactsAdapter()
-    private val viewModelFacts : FactsViewModel by viewModel()
+    private val viewModelFacts: FactsViewModel by viewModel()
+    private val loading by lazy{findViewById<ProgressBar>(R.id.loading)}
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recycler)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,11 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         observeFactsViewModel()
         facts?.let { viewModelFacts.fetchFacts(it) }
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler)
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = factsAdapter
-        infoFactsEmpty()
-        infoException()
 
     }
 
@@ -49,43 +46,57 @@ class MainActivity : AppCompatActivity() {
         viewModelFacts.observeState().observe(this, {
             when (it) {
                 is FactsState.Loading -> {
-                    Toast.makeText(this, "LOADING", Toast.LENGTH_SHORT).show()
+                    handlerLoading(true)
                 }
 
                 is FactsState.Success -> {
+                    handlerLoading(false)
                     handlerSuccess(it.resultsFacts)
+
                 }
                 is FactsState.Error -> {
-                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                    handlerLoading(false)
+                    renderError()
+                }
+                is FactsState.Empty ->{
+                    handlerLoading(false)
+                    renderEmptyState()
                 }
             }
         })
     }
 
-    private fun infoFactsEmpty(){
+    private fun renderEmptyState() {
         val btBack = findViewById<Button>(R.id.empty)
         val chuck = findViewById<ImageView>(R.id.chuck_no)
-
-        viewModelFacts.textIsEmpty.observe(this,{
-            chuck.visibility = View.VISIBLE
-            btBack.visibility = View.VISIBLE
-            btBack.setOnClickListener {
-                val intent = Intent(this, HostActivity::class.java)
-                startActivity(intent)
-            }
-        })
+        chuck.visibility = View.VISIBLE
+        btBack.visibility = View.VISIBLE
+        btBack.setOnClickListener {
+            val intent = Intent(this, SearchHostActivity::class.java)
+            startActivity(intent)
+        }
     }
-    private fun infoException(){
+
+    private fun renderError() {
         val btBack = findViewById<Button>(R.id.empty)
         val chuck = findViewById<ImageView>(R.id.chuck_ex)
-        viewModelFacts.exeception.observe(this,{
-            chuck.visibility = View.VISIBLE
-            btBack.visibility = View.VISIBLE
-            btBack.setOnClickListener {
-                val intent = Intent(this, HostActivity::class.java)
-                startActivity(intent)
-            }
-        })
+
+        chuck.visibility = View.VISIBLE
+        btBack.visibility = View.VISIBLE
+        btBack.setOnClickListener {
+            val intent = Intent(this, SearchHostActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun handlerLoading(visible: Boolean){
+        if(visible){
+            loading.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        }else{
+            loading.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+        }
     }
 
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#073143"
-    tools:context=".view.ui.homescreens.SplashActivity">
+    tools:context=".view.ui.SplashActivity">
 
     <ImageView
         android:id="@+id/imgFacts"

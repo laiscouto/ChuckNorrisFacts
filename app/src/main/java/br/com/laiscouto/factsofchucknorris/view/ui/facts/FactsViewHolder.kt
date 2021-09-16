@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.ui.main.adaptermain.viewholdermain
+package br.com.laiscouto.factsofchucknorris.view.ui.facts
 
 import android.content.Intent
 import android.view.View
@@ -12,7 +12,7 @@ import br.com.laiscouto.factsofchucknorris.constants.Constants
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
 
 
-class ViewHolderFacts(itemView: View): RecyclerView.ViewHolder(itemView) {
+class FactsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     fun bind(resultFacts: ResultOfFacts) {
 

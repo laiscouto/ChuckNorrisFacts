@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.ui.homescreens.fragments
+package br.com.laiscouto.factsofchucknorris.view.ui.search
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import br.com.laiscouto.factsofchucknorris.view.ui.main.MainActivity
+import br.com.laiscouto.factsofchucknorris.view.ui.facts.FactsActivity
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
 
@@ -41,7 +41,7 @@ class SearchFragment : Fragment() {
         if (saveFact.isNullOrEmpty()) {
             Toast.makeText(context, "Hey, enter a fact", Toast.LENGTH_SHORT).show()
         } else {
-            val intent = Intent(context, MainActivity::class.java).apply {
+            val intent = Intent(context, FactsActivity::class.java).apply {
                 val bundle = Bundle()
                 bundle.putString(KEY_FACTS, saveFact.toString())
                 putExtras(bundle)

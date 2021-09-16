@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain
+package br.com.laiscouto.factsofchucknorris.view.ui.facts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,43 +16,40 @@ class FactsViewModel(private val factsRepository: RepositoryFacts) : ViewModel()
 
     private val state = MutableLiveData<FactsState>()
     private val resultsValues = mutableListOf<ResultOfFacts>()
-    private val resultEmpty = MutableLiveData<Boolean>()
-    private val resultExcep = MutableLiveData<Boolean>()
-
-    var textIsEmpty = resultEmpty
-    var exeception = resultExcep
-
 
     fun observeState(): LiveData<FactsState> = state
 
-    fun fetchFacts(facts:String){
-        viewModelScope.launch(Dispatchers.Main){
+    fun fetchFacts(facts: String) {
+        viewModelScope.launch(Dispatchers.Main) {
             state.postValue(FactsState.Loading)
             try {
                 val results = factsRepository.getFacts(facts)
-                if(results.result.isEmpty()) {
-                    textIsEmpty.value = true
-                }else{
+                if (results.result.isEmpty()) {
+                    handleEmpty()
+                } else {
                     resultsValues.addAll(results.result)
                     handleSuccess(resultsValues)
                 }
-            } catch (time: TimeoutException){
-                exeception.value = true
-            } catch (unknown: UnknownHostException){
-                exeception.value = true
-            } catch (socket: SocketTimeoutException){
-                exeception.value = true
+            } catch (time: TimeoutException) {
+                handleError()
+            } catch (unknown: UnknownHostException) {
+                handleError()
+            } catch (socket: SocketTimeoutException) {
+                handleError()
             }
         }
     }
 
-    private fun handleSuccess(list: List<ResultOfFacts>){
+    private fun handleSuccess(list: List<ResultOfFacts>) {
         state.postValue(FactsState.Success(list))
     }
 
-    private fun handleError(){
+    private fun handleError() {
         state.postValue(FactsState.Error)
 
+    }
+    private fun handleEmpty(){
+        state.postValue(FactsState.Empty)
     }
 
 

@@ -8,7 +8,7 @@
 
 
     <application
-        android:name=".di.MyApplication"
+        android:name=".ChuckNorrisApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FactsOfChuckNorris">
 
         <activity
-            android:name="br.com.laiscouto.factsofchucknorris.view.ui.homescreens.SplashActivity"
+            android:name="br.com.laiscouto.factsofchucknorris.view.ui.SplashActivity"
             android:theme="@style/AppCompat.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,10 +27,10 @@
         </activity>
 
         <activity
-            android:name="br.com.laiscouto.factsofchucknorris.view.ui.homescreens.HostActivity"/>
+            android:name="br.com.laiscouto.factsofchucknorris.view.ui.search.SearchHostActivity"/>
 
         <activity
-            android:name=".view.ui.main.MainActivity"/>
+            android:name=".view.ui.facts.FactsActivity"/>
     </application>
 
 </manifest>
