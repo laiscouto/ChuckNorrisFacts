@@ -7,31 +7,62 @@
     android:layout_height="match_parent"
     tools:context=".view.main.MainActivity">
 
-    <TextView
+    <Button
         android:textAlignment="center"
-        android:id="@+id/facts_empty"
+        android:id="@+id/empty"
         android:textSize="18sp"
         android:textColor="#EA4A17"
         android:padding="8dp"
+        android:visibility="invisible"
         android:layout_marginEnd="14dp"
         android:layout_marginStart="14dp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/null_fact"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chuck_no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text=""/>
-
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/chuck"
-        android:layout_width="82dp"
-        android:layout_height="86dp"
-        android:src="@drawable/chuck"
-        app:layout_constraintBottom_toTopOf="@id/facts_empty"
+        android:text="BACK"/>
+    <Button
+        android:textAlignment="center"
+        android:id="@+id/exception"
+        android:textSize="18sp"
+        android:textColor="#EA4A17"
+        android:padding="8dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/null_fact"
+        app:layout_constraintTop_toBottomOf="@+id/chuck_no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:text="BYE"/>
+
+    <ImageView
+        android:id="@+id/chuck_no"
+        android:layout_width="365dp"
+        android:layout_height="399dp"
+        android:visibility="invisible"
+        android:src="@drawable/chuck_no_facs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/chuck_ex"
+        android:layout_width="365dp"
+        android:layout_height="399dp"
+        android:visibility="invisible"
+        android:src="@drawable/chuck_no_conec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

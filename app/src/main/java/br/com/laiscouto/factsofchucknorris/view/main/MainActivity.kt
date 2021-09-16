@@ -6,14 +6,16 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
-import br.com.laiscouto.factsofchucknorris.view.adapter.FactsAdapter
-import br.com.laiscouto.factsofchucknorris.viewmodel.FactsState
-import br.com.laiscouto.factsofchucknorris.viewmodel.FactsViewModel
+import br.com.laiscouto.factsofchucknorris.view.main.adaptermain.FactsAdapter
+import br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain.FactsState
+import br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain.FactsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pl.droidsonroids.gif.GifImageView
 
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 1)
         recyclerView.adapter = factsAdapter
         infoFactsEmpty()
+        infoException()
 
     }
 
@@ -60,12 +63,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun infoFactsEmpty(){
-        val text = findViewById<TextView>(R.id.facts_empty)
-        val chuck = findViewById<GifImageView>(R.id.chuck)
-        chuck.visibility = View.VISIBLE
-        text.visibility = View.VISIBLE
+        val btBack = findViewById<Button>(R.id.empty)
+        val chuck = findViewById<ImageView>(R.id.chuck_no)
+
         viewModelFacts.textIsEmpty.observe(this,{
-            text.text = it
+            chuck.visibility = View.VISIBLE
+            btBack.visibility = View.VISIBLE
+        })
+    }
+    private fun infoException(){
+        val btBye = findViewById<Button>(R.id.exception)
+        val chuck = findViewById<ImageView>(R.id.chuck_ex)
+        viewModelFacts.exeception.observe(this,{
+            chuck.visibility = View.VISIBLE
+            btBye.visibility = View.VISIBLE
         })
     }
 

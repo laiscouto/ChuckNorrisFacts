@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.adapter
+package br.com.laiscouto.factsofchucknorris.view.main.adaptermain
 
 
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
-import br.com.laiscouto.factsofchucknorris.view.adapter.viewholder.ViewHolderFacts
+import br.com.laiscouto.factsofchucknorris.view.main.adaptermain.viewholdermain.ViewHolderFacts
 
 class FactsAdapter(): RecyclerView.Adapter<ViewHolderFacts>() {
 

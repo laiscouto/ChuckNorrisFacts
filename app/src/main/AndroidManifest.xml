@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FactsOfChuckNorris">
 
         <activity
-            android:name=".view.main.SplashActivity"
+            android:name=".homescreens.SplashActivity"
             android:theme="@style/AppCompat.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
         </activity>
 
         <activity
-            android:name=".view.main.HostActivity"/>
+            android:name=".homescreens.HostActivity"/>
 
         <activity
             android:name=".view.main.MainActivity"/>

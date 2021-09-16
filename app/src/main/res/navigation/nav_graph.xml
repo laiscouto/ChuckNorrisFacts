@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/firstDirectFragment"
-        android:name="br.com.laiscouto.factsofchucknorris.view.fragments.FirstDirectFragment"
+        android:name="br.com.laiscouto.factsofchucknorris.homescreens.fragments.FirstDirectFragment"
         android:label="name"
         tools:layout="@layout/fragment_first_direct" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchActivity"
-        android:name="br.com.laiscouto.factsofchucknorris.view.fragments.SearchFragment"
+        android:name="br.com.laiscouto.factsofchucknorris.homescreens.fragments.SearchFragment"
         android:label="teste"
         tools:layout="@layout/fragment_search" />
 </navigation>

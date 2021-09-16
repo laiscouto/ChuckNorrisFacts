@@ -1,8 +1,7 @@
-package br.com.laiscouto.factsofchucknorris.view.fragments
+package br.com.laiscouto.factsofchucknorris.homescreens.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -10,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.laiscouto.factsofchucknorris.view.main.MainActivity
 import br.com.laiscouto.factsofchucknorris.R
-import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEYS_ACTION
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
 
 class SearchFragment : Fragment() {
@@ -27,7 +25,7 @@ class SearchFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         val bt = view.findViewById<Button>(R.id.bt_fact)
-        bt.setOnClickListener{
+        bt.setOnClickListener {
             saveSearch()
         }
         val search = view.findViewById<ImageView>(R.id.search)
@@ -35,30 +33,22 @@ class SearchFragment : Fragment() {
             saveSearch()
         }
     }
-    private fun saveSearch():Boolean{
-        val actionId = KEYS_ACTION
+
+    private fun saveSearch() {
         val receivingOfFact = view?.findViewById<EditText>(R.id.enter_fact)
         val saveFact = receivingOfFact?.text
-        var handled = false;
-        if (actionId == EditorInfo.IME_ACTION_DONE ) {
 
-            if (saveFact.isNullOrEmpty()) {
-                Toast.makeText(context, "Hey, enter a fact", Toast.LENGTH_SHORT).show()
-            } else {
-                val intent = Intent(context, MainActivity::class.java).apply {
-                    val bundle = Bundle()
-                    bundle.putString(KEY_FACTS, saveFact.toString())
-                    putExtras(bundle)
-                }
-
-                startActivity(intent)
+        if (saveFact.isNullOrEmpty()) {
+            Toast.makeText(context, "Hey, enter a fact", Toast.LENGTH_SHORT).show()
+        } else {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                val bundle = Bundle()
+                bundle.putString(KEY_FACTS, saveFact.toString())
+                putExtras(bundle)
             }
-            handled = true;
+
+            startActivity(intent)
         }
-        return handled
-
     }
-
-
 }
 
