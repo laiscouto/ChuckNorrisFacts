@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain
+package br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain
 
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
 

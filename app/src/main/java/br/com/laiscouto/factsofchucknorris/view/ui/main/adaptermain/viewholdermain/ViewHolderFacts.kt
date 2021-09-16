@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.main.adaptermain.viewholdermain
+package br.com.laiscouto.factsofchucknorris.view.ui.main.adaptermain.viewholdermain
 
 import android.content.Intent
 import android.view.View

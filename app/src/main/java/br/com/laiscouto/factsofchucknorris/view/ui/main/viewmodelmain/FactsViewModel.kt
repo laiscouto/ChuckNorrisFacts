@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain
+package br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

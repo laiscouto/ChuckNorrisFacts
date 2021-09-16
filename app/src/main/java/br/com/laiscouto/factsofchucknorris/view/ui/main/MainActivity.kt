@@ -1,10 +1,9 @@
-package br.com.laiscouto.factsofchucknorris.view.main
+package br.com.laiscouto.factsofchucknorris.view.ui.main
 
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import android.widget.Toast
 import android.view.View
 import android.widget.Button
@@ -13,13 +12,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
-import br.com.laiscouto.factsofchucknorris.homescreens.HostActivity
+import br.com.laiscouto.factsofchucknorris.view.ui.homescreens.HostActivity
 import br.com.laiscouto.factsofchucknorris.service.model.ResultOfFacts
-import br.com.laiscouto.factsofchucknorris.view.main.adaptermain.FactsAdapter
-import br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain.FactsState
-import br.com.laiscouto.factsofchucknorris.view.main.viewmodelmain.FactsViewModel
+import br.com.laiscouto.factsofchucknorris.view.ui.main.adaptermain.FactsAdapter
+import br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain.FactsState
+import br.com.laiscouto.factsofchucknorris.view.ui.main.viewmodelmain.FactsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import pl.droidsonroids.gif.GifImageView
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,12 +76,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
     private fun infoException(){
-        val btBye = findViewById<Button>(R.id.exception)
+        val btBack = findViewById<Button>(R.id.empty)
         val chuck = findViewById<ImageView>(R.id.chuck_ex)
         viewModelFacts.exeception.observe(this,{
             chuck.visibility = View.VISIBLE
-            btBye.visibility = View.VISIBLE
-            btBye.setOnClickListener {  }
+            btBack.visibility = View.VISIBLE
+            btBack.setOnClickListener {
+                val intent = Intent(this, HostActivity::class.java)
+                startActivity(intent)
+            }
         })
     }
 

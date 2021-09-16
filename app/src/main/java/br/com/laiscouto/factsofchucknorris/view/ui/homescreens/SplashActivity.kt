@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.homescreens
+package br.com.laiscouto.factsofchucknorris.view.ui.homescreens
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

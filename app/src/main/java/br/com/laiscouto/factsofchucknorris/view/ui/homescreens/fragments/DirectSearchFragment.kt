@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.homescreens.fragments
+package br.com.laiscouto.factsofchucknorris.view.ui.homescreens.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

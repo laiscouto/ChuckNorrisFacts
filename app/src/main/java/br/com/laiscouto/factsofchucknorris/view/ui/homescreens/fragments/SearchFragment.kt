@@ -1,4 +1,4 @@
-package br.com.laiscouto.factsofchucknorris.homescreens.fragments
+package br.com.laiscouto.factsofchucknorris.view.ui.homescreens.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import br.com.laiscouto.factsofchucknorris.view.main.MainActivity
+import br.com.laiscouto.factsofchucknorris.view.ui.main.MainActivity
 import br.com.laiscouto.factsofchucknorris.R
 import br.com.laiscouto.factsofchucknorris.constants.Constants.Companion.KEY_FACTS
 

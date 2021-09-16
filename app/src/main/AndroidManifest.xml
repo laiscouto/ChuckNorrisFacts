@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FactsOfChuckNorris">
 
         <activity
-            android:name=".homescreens.SplashActivity"
+            android:name="br.com.laiscouto.factsofchucknorris.view.ui.homescreens.SplashActivity"
             android:theme="@style/AppCompat.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,10 +27,10 @@
         </activity>
 
         <activity
-            android:name=".homescreens.HostActivity"/>
+            android:name="br.com.laiscouto.factsofchucknorris.view.ui.homescreens.HostActivity"/>
 
         <activity
-            android:name=".view.main.MainActivity"/>
+            android:name=".view.ui.main.MainActivity"/>
     </application>
 
 </manifest>
